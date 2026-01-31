@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автосервис "МастерКар" - Профессиональный ремонт автомобилей</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Инициализация EmailJS
+        emailjs.init('iRdncC_hRzCn4lc7b');
+    </script>
+</head>
+<body>
+    <!-- Шапка сайта с навигацией -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-car logo-icon"></i>
+                <div class="logo-text">Авто<span>Сервис</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#contact" class="btn">Записаться</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Профессиональный ремонт автомобилей</h1>
+            <p>Мы предоставляем полный спектр услуг по ремонту и обслуживанию автомобилей любых марок. Гарантия качества, доступные цены и опытные мастера.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn">Наши услуги</a>
+                <a href="#contact" class="btn btn-secondary">Записаться онлайн</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <!-- Услуга 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Техническое обслуживание</h3>
+                        <p>Полное ТО вашего автомобиля, замена масла, фильтров, диагностика всех систем.</p>
+                        <div class="service-price">от 3 500 руб.</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+                
+                <!-- Услуга 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ремонт двигателя</h3>
+                        <p>Капитальный и текущий ремонт двигателей любой сложности, замена деталей.</p>
+                        <div class="service-price">от 8 000 руб.</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+                
+                <!-- Услуга 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ремонт ходовой части</h3>
+                        <p>Диагностика и ремонт подвески, замена амортизаторов, шаровых опор, сайлентблоков.</p>
+                        <div class="service-price">от 2 500 руб.</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+                
+                <!-- Услуга 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Электрика и электроника</h3>
+                        <p>Ремонт электрооборудования, замена аккумуляторов, диагностика бортовых систем.</p>
+                        <div class="service-price">от 1 500 руб.</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+                
+                <!-- Услуга 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Шиномонтаж</h3>
+                        <p>Сезонная замена шин, балансировка колес, ремонт проколов, хранение шин.</p>
+                        <div class="service-price">от 500 руб.</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+                
+                <!-- Услуга 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Кузовной ремонт</h3>
+                        <p>Покраска, рихтовка, устранение вмятин, полировка кузова, антикоррозийная обработка.</p>
+                        <div class="service-price">от 4 000 руб.</div>
+                        <a href="#contact" class="btn">Записаться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Автосервис "МастерКар" работает на рынке услуг с 2010 года. За это время мы заслужили репутацию надежного и профессионального партнера для владельцев автомобилей.</p>
+                    <p>Наш автосервис оснащен современным диагностическим оборудованием, что позволяет точно определить причину неисправности и выполнить ремонт качественно и в кратчайшие сроки.</p>
+                    <p>Мы работаем с автомобилями любых марок и годов выпуска, используем только оригинальные и качественные запасные части.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Более 12 лет опыта</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Гарантия на все виды работ</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Оригинальные запчасти</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Современное оборудование</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Квалифицированные мастера</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Доступные цены</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn" style="margin-top: 30px;">Связаться с нами</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://avatars.mds.yandex.net/get-altay/1971563/2a0000016c93a28f058cfeff0370d62eb7d0/XXL_height" alt="Наш автосервис">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты и запись</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Наши контакты</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Адрес:</strong>
+                                <p>г. Электросталь</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Телефон:</strong>
+                                <p><a href="tel:+79151088865" style="color: #333; text-decoration: none;">8 (915) 108-88-65</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong>
+                                <p><a href="mailto:fozxdc@gmail.com" style="color: #333; text-decoration: none;">fozxdc@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Режим работы:</strong>
+                                <p>Пн-Пт: 9:00 - 20:00<br>Сб-Вс: 10:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Карта -->
+                    <div class="map-container" style="margin-top: 30px;">
+                        <h4 style="color: #1a365d; margin-bottom: 15px;">Мы на карте:</h4>
+                        <div class="map-wrapper" style="border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: 300px;">
+                            <!-- Яндекс.Карта для Электростали -->
+                            <iframe 
+                                src="https://yandex.ru/map-widget/v1/?um=constructor%3A8a93ebd2ba4286c5ff280ce39d9f1caf5fc4f3005f6843ec2ac8e34dda16c72e&amp;source=constructor" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0"
+                                style="border:0;"
+                                allowfullscreen="true">
+                            </iframe>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 10px; text-align: center;">
+                            <i class="fas fa-info-circle"></i> Карта интерактивная - можно приближать и перемещаться
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="color: #1a365d; margin-bottom: 20px;">Записаться на обслуживание</h3>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="car">Марка и модель автомобиля</label>
+                            <input type="text" id="car" name="car">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Услуга</label>
+                            <select id="service" name="service">
+                                <option value="">Выберите услугу</option>
+                                <option value="maintenance">Техническое обслуживание</option>
+                                <option value="engine">Ремонт двигателя</option>
+                                <option value="suspension">Ремонт ходовой части</option>
+                                <option value="electrical">Электрика и электроника</option>
+                                <option value="tires">Шиномонтаж</option>
+                                <option value="body">Кузовной ремонт</option>
+                                <option value="diagnostics">Диагностика</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Предпочтительная дата</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Дополнительная информация</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <a href="#" class="logo">
+                            <i class="fas fa-car logo-icon"></i>
+                            <div class="logo-text">Авто<span>Сервис</span></div>
+                        </a>
+                    </div>
+                    <p>Профессиональный автосервис с многолетним опытом. Качественный ремонт, доступные цены, гарантия на все виды работ.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="#">Акции</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Электросталь</p>
+                    <!-- Исправленный номер телефона -->
+                    <p><i class="fas fa-phone"></i> <a href="tel:+79151088865" style="color: #ccc;">8 (915) 108-88-65</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:fozxdc@gmail.com" style="color: #ccc;">fozxdc@gmail.com</a></p>
+                </div>
+                
+                <div class="footer-hours">
+                    <h3>Режим работы</h3>
+                    <p><span>Понедельник - Пятница</span> <span>9:00 - 20:00</span></p>
+                    <p><span>Суббота</span> <span>10:00 - 18:00</span></p>
+                    <p><span>Воскресенье</span> <span>10:00 - 18:00</span></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; Над сайтом работал Сенников К.Р</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключение JavaScript файла -->
+    <script src="javascript.js"></script>
+</body>
+</html>
