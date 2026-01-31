@@ -4,7 +4,63 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('EmailJS loaded:', typeof emailjs !== 'undefined');
 
-    // Мобильное меню (оставляем без изменений)
+    // Оптимизационные функции
+    function optimizeImages() {
+        const aboutImage = document.querySelector('.about-image img');
+        if (aboutImage && window.innerWidth < 768) {
+            aboutImage.src = 'https://avatars.mds.yandex.net/get-altay/1971563/2a0000016c93a28f058cfeff0370d62eb7d0/M';
+        }
+    }
+
+    function addTouchOptimizations() {
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.btn, .service-card').forEach(el => {
+                el.style.cursor = 'pointer';
+            });
+            
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = (new Date()).getTime();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        }
+    }
+
+    function adjustMapHeight() {
+        const mapWrapper = document.querySelector('.map-wrapper');
+        if (!mapWrapper) return;
+        
+        if (window.innerWidth < 576) {
+            mapWrapper.style.height = '200px';
+        } else if (window.innerWidth < 768) {
+            mapWrapper.style.height = '250px';
+        } else {
+            mapWrapper.style.height = '300px';
+        }
+    }
+
+    function fixViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    // Инициализация оптимизаций
+    optimizeImages();
+    addTouchOptimizations();
+    adjustMapHeight();
+    fixViewportHeight();
+
+    // Обновление при изменении размера окна
+    window.addEventListener('resize', function() {
+        optimizeImages();
+        adjustMapHeight();
+        fixViewportHeight();
+    });
+
+    // Мобильное меню
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
 
@@ -112,10 +168,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Подготовка данных для отправки - ИСПОЛЬЗУЕМ ПРАВИЛЬНЫЕ КЛЮЧИ!
                 const formData = {
-                    name: name, // Важно: используем "name", а не "from_name"
+                    name: name,
                     phone: phone,
                     car: document.getElementById('car').value.trim() || 'Не указано',
-                    service: serviceText, // Русский текст услуги
+                    service: serviceText,
                     date: document.getElementById('date').value || 'Не указана',
                     message: document.getElementById('message').value.trim() || 'Нет сообщения',
                     timestamp: new Date().toLocaleString('ru-RU'),

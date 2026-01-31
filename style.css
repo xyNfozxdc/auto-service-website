@@ -69,6 +69,7 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
 /* Исправление для кнопки "Записаться" в навигации */
 .nav-links li:last-child a {
     background-color: #e63946;
@@ -475,6 +476,26 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Стили для карты */
+.map-container {
+    margin-top: 30px;
+}
+
+.map-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 300px;
+    position: relative;
+    background-color: #f8f9fa;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 /* Медиа-запросы для адаптивности */
 @media (max-width: 992px) {
     .section {
@@ -540,6 +561,30 @@ footer {
         width: 80%;
         margin-bottom: 10px;
     }
+    
+    /* Исправление для мобильного меню */
+    .nav-links li:last-child a {
+        margin-left: 0;
+        margin-top: 10px;
+        display: inline-block;
+        text-align: center;
+    }
+    
+    /* Улучшение для мобильных в альбомной ориентации */
+    @media (orientation: landscape) {
+        .hero {
+            padding: 120px 0 80px;
+        }
+        
+        .nav-links {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 @media (max-width: 576px) {
@@ -558,26 +603,10 @@ footer {
     .services-grid {
         grid-template-columns: 1fr;
     }
-}
-
-/* Стили для карты */
-.map-container {
-    margin-top: 30px;
-}
-
-.map-wrapper {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    height: 300px;
-    position: relative;
-    background-color: #f8f9fa;
-}
-
-.map-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
+    
+    .map-wrapper {
+        height: 200px;
+    }
 }
 
 /* Адаптивность для карты */
@@ -587,18 +616,247 @@ footer {
     }
 }
 
-@media (max-width: 576px) {
-    .map-wrapper {
-        height: 200px;
+/* Оптимизация для сверхшироких экранов */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero {
+        padding: 220px 0 140px;
+    }
+    
+    .hero h1 {
+        font-size: 4rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Исправление для мобильного меню */
-@media (max-width: 768px) {
-    .nav-links li:last-child a {
-        margin-left: 0;
-        margin-top: 10px;
-        display: inline-block;
-        text-align: center;
+/* Улучшение для планшетов в альбомной ориентации */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero {
+        padding: 150px 0 100px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .about-content {
+        gap: 40px;
+    }
+}
+
+/* Улучшение для маленьких экранов */
+@media (max-width: 375px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .service-content {
+        padding: 20px;
+    }
+    
+    .contact-form {
+        padding: 20px;
+    }
+    
+    .footer-content {
+        gap: 30px;
+    }
+}
+
+/* Оптимизация для высоты экрана */
+@media (max-height: 600px) {
+    .hero {
+        padding: 140px 0 80px;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+}
+
+/* Улучшение доступности для тач-устройств */
+@media (hover: none) and (pointer: coarse) {
+    .btn, 
+    .nav-links a,
+    .footer-links a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .service-card:hover {
+        transform: none;
+    }
+    
+    .nav-links a:hover {
+        color: white;
+    }
+    
+    .nav-links a:hover:after {
+        width: 0;
+    }
+    
+    /* Добавляем активные состояния для тач-устройств */
+    .btn:active {
+        background-color: #c1121f;
+        transform: scale(0.98);
+    }
+    
+    .service-card:active {
+        transform: scale(0.99);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+}
+
+/* Поддержка темной темы (без изменения цветов) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    
+    .services,
+    .contact {
+        background-color: #1e1e1e;
+    }
+    
+    .about {
+        background-color: #242424;
+    }
+    
+    .contact-form {
+        background-color: #2d2d2d;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        background-color: #333;
+        color: #e0e0e0;
+        border-color: #444;
+    }
+    
+    .section-title,
+    .service-content h3,
+    .contact-info h3,
+    .form-group label {
+        color: #ffffff;
+    }
+    
+    .service-content p {
+        color: #b0b0b0;
+    }
+}
+
+/* Улучшение производительности анимаций */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Исправление для fold-устройств (складные телефоны) */
+@media (max-width: 350px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .hero-btns .btn {
+        width: 90%;
+        padding: 10px 20px;
+    }
+    
+    .service-price {
+        font-size: 1.1rem;
+    }
+}
+
+/* Улучшение для читаемости на больших экранах */
+@media (min-width: 1440px) {
+    body {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    
+    .container {
+        max-width: 1300px;
+    }
+    
+    .nav-links a {
+        font-size: 1.05rem;
+    }
+}
+
+/* Оптимизация изображений для Retina дисплеев */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero {
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                         url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80');
+    }
+}
+
+/* Улучшение для печати */
+@media print {
+    .hero,
+    .mobile-menu-btn,
+    .contact-form,
+    .map-container {
+        display: none;
+    }
+    
+    .section {
+        padding: 30px 0;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        padding-top: 20px;
+        border-top: 1px solid #000;
+    }
+}
+
+/* Исправление проблем с viewport на iOS */
+@supports (-webkit-touch-callout: none) {
+    .hero,
+    .section {
+        -webkit-background-attachment: scroll !important;
+        background-attachment: scroll !important;
+    }
+    
+    input,
+    textarea,
+    select {
+        font-size: 16px !important; /* Предотвращает масштабирование в iOS */
     }
 }
